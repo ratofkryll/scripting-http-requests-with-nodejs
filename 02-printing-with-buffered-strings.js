@@ -4,7 +4,7 @@ function getAndPrintHTMLChunks (callback) {
 
   var requestOptions = {
     host: 'sytantris.github.io',
-    path: '/http-examples/step1.html'
+    path: '/http-examples/step2.html'
   };
 
   /* Add your code here */
@@ -16,11 +16,14 @@ function getAndPrintHTMLChunks (callback) {
 
     response.setEncoding('utf8');
 
+    var dataBody = '';
     response.on('data', function (data) {
-      console.log(data + '\n');
+      dataBody += data;
     });
 
+
     response.on('end', function () {
+      console.log(dataBody);
       console.log('Response stream complete.');
     });
 
