@@ -1,6 +1,6 @@
 var https = require('https');
 
-function getAndPrintHTMLChunks (callback) {
+function getAndPrintHTMLChunks () {
 
   var requestOptions = {
     host: 'sytantris.github.io',
@@ -10,8 +10,7 @@ function getAndPrintHTMLChunks (callback) {
   /* Add your code here */
   https.get(requestOptions, function (response) {
     if (response.statusCode !== 200) {
-      callback(new Error('Request failed with Status Code ' + response.statusCode, null));
-      return;
+      return console.log("Error " + response.statusCode);
     }
 
     response.setEncoding('utf8');
