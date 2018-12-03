@@ -9,6 +9,10 @@ function getAndPrintHTMLChunks () {
 
   /* Add your code here */
   https.get(requestOptions, function (response) {
+    if (response.statusCode !== 200) {
+      callback(new Error('Request failed with Status Code ' + response.statusCode, null));
+      return;
+    }
 
     response.setEncoding('utf8');
 
