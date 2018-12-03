@@ -20,7 +20,6 @@ function getAndPrintHTMLChunks () {
       dataBody += data;
     });
 
-
     response.on('end', function () {
       console.log(dataBody);
       console.log('Response stream complete.');
