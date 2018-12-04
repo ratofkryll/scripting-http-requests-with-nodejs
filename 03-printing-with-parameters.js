@@ -1,16 +1,16 @@
 var https = require('https');
 
-function getAndPrintHTMLChunks (host, path) {
+var requestOptions = {
+  host: 'sytantris.github.io',
+  path: '/http-examples/step3.html'
+};
 
-  var requestOptions = {
-    host: host,
-    path: path
-  };
+function getAndPrintHTML (options) {
 
   /* Add your code here */
-  https.get(requestOptions, function (response) {
+  https.get(options, function (response) {
     if (response.statusCode !== 200) {
-      return console.log("Error " + response.statusCode);
+      return console.log('Error ' + response.statusCode);
     }
 
     response.setEncoding('utf8');
@@ -29,4 +29,4 @@ function getAndPrintHTMLChunks (host, path) {
 
 };
 
-console.log(getAndPrintHTMLChunks('sytantris.github.io', '/http-examples/step3.html'));
+getAndPrintHTML(requestOptions);
