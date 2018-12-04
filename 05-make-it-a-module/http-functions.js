@@ -1,13 +1,7 @@
-module.exports = function getHTML (host, path, callback) {
+module.exports = function getHTML (options, callback) {
   var https = require('https');
 
-  var requestOptions = {
-    host: host,
-    path: path
-  };
-
-  /* Add your code here */
-  https.get(requestOptions, function (response) {
+  https.get(options, function (response) {
     if (response.statusCode !== 200) {
       return console.log('Error ' + response.statusCode);
     }
@@ -20,10 +14,7 @@ module.exports = function getHTML (host, path, callback) {
     });
 
     response.on('end', function () {
-      // console.log(dataBody);
-      return console.log(callback(printHTML(dataBody)));
+      callback(dataBody);
     });
-
   });
-
 };

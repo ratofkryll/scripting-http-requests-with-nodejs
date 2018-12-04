@@ -24,9 +24,7 @@ function getHTML (options, callback) {
       // console.log(dataBody);
       callback(dataBody);
     });
-
   });
-
 };
 
 function printHTML (html) {
